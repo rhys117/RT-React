@@ -1,11 +1,23 @@
 {
-  "name": "rt-react",
+  "name": "accounts-platform",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "deep-is": "^0.1.3",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-redux": "^6.0.1",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-thunk": "^2.3.0",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
