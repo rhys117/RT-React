@@ -24,19 +24,22 @@ const OpenTicketsPage = () => (
       if (error) return <p>Error</p>;
       console.log(data);
       return (
-        <table>
-          <thead>
-            <th>ID</th>
-            <th>Subject</th>
-            <th>Owner</th>
-            <th>Due</th>
-          </thead>
-          <tbody>
-          {data.openTickets.map(ticket =>
-            <TicketListRow key={ticket.effectiveId} ticket={ticket} />
-          )}
-          </tbody>
-        </table>
+        <div>
+          <h2>Open Tickets</h2>
+          <table>
+            <thead>
+              <th>ID</th>
+              <th>Subject</th>
+              <th>Owner</th>
+              <th>Due</th>
+            </thead>
+            <tbody>
+            {data.openTickets.map(ticket =>
+              <TicketListRow key={ticket.effectiveId} ticket={ticket} />
+            )}
+            </tbody>
+          </table>
+        </div>
       )
     }}
   </Query>
