@@ -10,6 +10,7 @@ const OpenTicketsPage = () => (
       {
         openTickets {
           effectiveId
+          status
           subject
           due
           owner {
@@ -18,20 +19,26 @@ const OpenTicketsPage = () => (
         }
       }
     `}
+    // Fetch policy so reloads when changing routes (does not use cached data)
+    fetchPolicy='network-only'
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading<LoadingDots interval={100} dots={20}/></p>;
       if (error) return <p>Error</p>;
+
       console.log(data);
       return (
         <div>
           <h2>Open Tickets</h2>
           <table>
             <thead>
-              <th>ID</th>
-              <th>Subject</th>
-              <th>Owner</th>
-              <th>Due</th>
+              <tr>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Subject</th>
+                <th>Owner</th>
+                <th>Due</th>
+              </tr>
             </thead>
             <tbody>
             {data.openTickets.map(ticket =>

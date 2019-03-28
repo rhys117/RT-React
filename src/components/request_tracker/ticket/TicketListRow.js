@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const rt_ticket_url = 'http://localhost/Ticket/Display.html?id=';
+import {DISPLAY_TICKET_URL} from "../../../api/constants";
+import dateFormat from 'dateformat';
 
 const TicketListRow = ({ticket}) => {
+  let formattedDate = dateFormat(ticket.due, "dS mmmm, yyyy, h:MM TT");
+
   return (
     <tr>
-      <td><a href={rt_ticket_url + ticket.effectiveId} target="_blank">{ticket.effectiveId}</a></td>
+      <td><a href={DISPLAY_TICKET_URL + ticket.effectiveId} target="_blank" rel="noopener noreferrer">{ticket.effectiveId}</a></td>
+      <td>{ticket.status}</td>
       <td>{ticket.subject}</td>
       <td>{ticket.owner.name}</td>
-      <td>{ticket.due}</td>
+      <td>{formattedDate}</td>
     </tr>
   );
 };

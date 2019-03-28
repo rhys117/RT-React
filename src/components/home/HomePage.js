@@ -5,8 +5,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="jumbotron">
-        <h1>Home Page</h1>
-        <p>Description.</p>
+        <h1>Request Tracker: React</h1>
+        <p>Interface for ticketing system.</p>
         <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
       </div>
     );
