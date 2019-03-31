@@ -1,3 +1,6 @@
+@import "./loginPage";
+@import "./ticketList";
+
 /* Styles */
 #root {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-sefif;
@@ -5,4 +8,9 @@
   min-width: 550px;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+
+header {
+  padding-bottom: 10px;
 }

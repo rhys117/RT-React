@@ -9,6 +9,7 @@ import OpenTicketsPage from './components/request_tracker/ticket/OpenTicketsPage
 export default (
   <div>
     <Route path="/" exact component={HomePage} />
+    <Route path="/login" exact component={LoginPage} />
     <Route path="/about" component={AboutPage} />
     <Route path="/open_tickets" component={OpenTicketsPage} />
   </div>

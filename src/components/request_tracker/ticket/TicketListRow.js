@@ -4,7 +4,7 @@ import {DISPLAY_TICKET_URL} from "../../../api/constants";
 import dateFormat from 'dateformat';
 
 const TicketListRow = ({ticket}) => {
-  let formattedDate = dateFormat(ticket.due, "dS mmmm, yyyy, h:MM TT");
+  let formatted_date = dateFormat(ticket.due, "dS mmmm, yyyy, h:MM TT");
 
   return (
     <tr>
@@ -12,7 +12,7 @@ const TicketListRow = ({ticket}) => {
       <td>{ticket.status}</td>
       <td>{ticket.subject}</td>
       <td>{ticket.owner.name}</td>
-      <td>{formattedDate}</td>
+      <td>{formatted_date}</td>
     </tr>
   );
 };

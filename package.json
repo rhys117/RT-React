@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.3.1",
+    "apollo-link-http": "^1.5.14",
     "bootstrap": "^4.3.1",
     "dateformat": "^3.0.3",
     "deep-is": "^0.1.3",

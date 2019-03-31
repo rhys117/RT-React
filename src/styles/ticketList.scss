@@ -1,0 +1,18 @@
+.ticket-list {
+  width: 100%;
+  .ticket-id {
+    width: 8%;
+  }
+  .ticket-status {
+    width: 8%;
+  }
+  .ticket-subject {
+    width: 50%;
+  }
+  .ticket-owner {
+    width: 12%;
+  }
+  .ticket-due {
+    width: 22%;
+  }
+}

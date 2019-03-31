@@ -2,7 +2,7 @@ import React from 'react';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import LoadingDots from './../../common/LoadingDots';
-import TicketListRow from "./TicketListRow";
+import TicketList from './TicketList';
 
 const OpenTicketsPage = () => (
   <Query
@@ -24,28 +24,12 @@ const OpenTicketsPage = () => (
   >
     {({ loading, error, data }) => {
       if (loading) return <p>Loading<LoadingDots interval={100} dots={20}/></p>;
-      if (error) return <p>Error</p>;
+      if (error) return <p>Whoops! Something went wrong.</p>;
 
-      console.log(data);
       return (
-        <div>
+        <div className='open-tickets'>
           <h2>Open Tickets</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Status</th>
-                <th>Subject</th>
-                <th>Owner</th>
-                <th>Due</th>
-              </tr>
-            </thead>
-            <tbody>
-            {data.openTickets.map(ticket =>
-              <TicketListRow key={ticket.effectiveId} ticket={ticket} />
-            )}
-            </tbody>
-          </table>
+          <TicketList tickets={data.openTickets} />
         </div>
       )
     }}
