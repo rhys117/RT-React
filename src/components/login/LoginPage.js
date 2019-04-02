@@ -50,6 +50,7 @@ class Login extends Component {
               >
                 <div>
                   <input
+                    autoComplete='username'
                     value={username}
                     onChange={e => this.setState({ username: e.target.value })}
                     type="text"
@@ -59,6 +60,7 @@ class Login extends Component {
                 </div>
                 <div>
                   <input
+                    autoComplete='current-password'
                     value={password}
                     onChange={e => this.setState({ password: e.target.value })}
                     type="password"
