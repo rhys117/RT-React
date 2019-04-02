@@ -1,11 +1,12 @@
 import {combineReducers} from 'redux';
 import ajaxCallsInProgress from './ajaxStatusReducer';
+import username from './usernameReducer'
+import isLoggedIn from './isLoggedInReducer'
 
 const rootReducer = combineReducers({
-// eg
-  // courses,
-  // authors,
-  ajaxCallsInProgress
+  ajaxCallsInProgress,
+  username,
+  isLoggedIn
 });
 
 export default rootReducer;

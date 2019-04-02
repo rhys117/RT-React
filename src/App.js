@@ -8,23 +8,22 @@ import ApolloClient from './api/client';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
-// import {loadQueueNames} from "./actions/ticketActions";
 import './styles/styles.scss';
 import Layout from './components/Layout';
+import initialState from "./reducers/initialState";
 
-const store = configureStore();
-// store.dispatch(loadQueueNames());
+const store = configureStore(initialState);
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <ApolloProvider client={ApolloClient}>
+      <ApolloProvider client={ApolloClient}>
+        <Provider store={store}>
           <BrowserRouter>
             <Layout />
           </BrowserRouter>
-        </ApolloProvider>
-      </Provider>
+        </Provider>
+      </ApolloProvider>
     );
   }
 }

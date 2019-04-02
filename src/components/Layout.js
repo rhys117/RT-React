@@ -10,7 +10,8 @@ class Layout extends React.Component {
     return (
       <div className="container-fluid">
         <Header
-          loading={this.props.loading}
+          isLoggedIn={this.props.isLoggedIn}
+          username={this.props.username}
         />
         { Routes }
       </div>
@@ -19,12 +20,14 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  loading: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    loading: state.ajaxCallsInProgress > 0
+    isLoggedIn: state.isLoggedIn,
+    username: state.username
   };
 }
 

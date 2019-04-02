@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as userActions from '../../actions/userActions';
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { AUTH_TOKEN, USERNAME } from '../../api/constants'
@@ -20,10 +23,10 @@ const LOGIN_MUTATION = gql`
 `;
 
 class Login extends Component {
+
   state = {
     username: '',
     password: '',
-    failed: false
   };
 
   render() {
@@ -33,37 +36,42 @@ class Login extends Component {
       <div className='card login-card'>
         <div className='card-body'>
           <h4>Login</h4>
-          <div>
-            <div>
-            <input
-              value={username}
-              onChange={e => this.setState({ username: e.target.value })}
-              type="text"
-              className='form-control login-input'
-              placeholder="Your RT username"
-            />
-          </div>
-            <div>
-              <input
-                value={password}
-                onChange={e => this.setState({ password: e.target.value })}
-                type="password"
-                className='form-control login-input'
-                placeholder="Your RT password"
-              />
-              <Mutation
-                mutation={LOGIN_MUTATION}
-                variables={{ username, password }}
-                onCompleted={data => this._confirm(data)}
+          <Mutation
+            mutation={LOGIN_MUTATION}
+            variables={{ username, password }}
+            onCompleted={data => this._confirm(data)}
+          >
+            {(signInUser) => (
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
+                  signInUser();
+                }}
               >
-                {mutation => (
-                  <button className="btn btn-primary" onClick={mutation}>
-                    login
-                  </button>
-                )}
-              </Mutation>
-            </div>
-          </div>
+                <div>
+                  <input
+                    value={username}
+                    onChange={e => this.setState({ username: e.target.value })}
+                    type="text"
+                    className='form-control login-input'
+                    placeholder="Your RT username"
+                  />
+                </div>
+                <div>
+                  <input
+                    value={password}
+                    onChange={e => this.setState({ password: e.target.value })}
+                    type="password"
+                    className='form-control login-input'
+                    placeholder="Your RT password"
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
+              </form>
+            )}
+          </Mutation>
         </div>
       </div>
     )
@@ -82,9 +90,20 @@ class Login extends Component {
   _saveUserData = signinUser_data => {
     localStorage.setItem(AUTH_TOKEN, signinUser_data.token);
     localStorage.setItem(USERNAME, signinUser_data.user.name);
-
+    this.props.actions.userLoggedIn(signinUser_data.user.name);
   }
 }
 
-export default Login
+function mapStateToProps(state, ownProps) {
+  return {
+    username: state.username
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(userActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
