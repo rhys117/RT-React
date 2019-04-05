@@ -3,27 +3,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../../actions/userActions';
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
-import { AUTH_TOKEN, USERNAME } from '../../api/constants'
+import { AUTH_TOKEN, USERNAME, USER_ID } from '../../api/constants'
 import toastr from 'toastr';
-
-const LOGIN_MUTATION = gql`
-  mutation signinUserMutation($username: String!, $password: String!) {
-    signinUser(credentials: {
-      username: $username,
-      password: $password
-    })
-    {
-      token
-      user {
-        name
-      }
-    }
-  }
-`;
+import loginMutation from '../../queries/loginMutation';
 
 class Login extends Component {
-
   state = {
     username: '',
     password: '',
@@ -37,7 +21,7 @@ class Login extends Component {
         <div className='card-body'>
           <h4>Login</h4>
           <Mutation
-            mutation={LOGIN_MUTATION}
+            mutation={loginMutation}
             variables={{ username, password }}
             onCompleted={data => this._confirm(data)}
           >
@@ -92,7 +76,10 @@ class Login extends Component {
   _saveUserData = signinUser_data => {
     localStorage.setItem(AUTH_TOKEN, signinUser_data.token);
     localStorage.setItem(USERNAME, signinUser_data.user.name);
-    this.props.actions.userLoggedIn(signinUser_data.user.name);
+    localStorage.setItem(USER_ID, signinUser_data.user.id);
+
+    this.props.actions.userLoggedIn(signinUser_data.user);
+
   }
 }
 

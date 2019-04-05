@@ -1,24 +1,12 @@
 import React from 'react';
 import {Query} from 'react-apollo';
-import gql from 'graphql-tag';
 import LoadingDots from './../../common/LoadingDots';
 import TicketList from './TicketList';
+import allOpenTicketsQuery from '../../../queries/allOpenTicketsQuery';
 
 const OpenTicketsPage = () => (
   <Query
-    query={gql`
-      {
-        openTickets {
-          effectiveId
-          status
-          subject
-          due
-          owner {
-            name
-          }
-        }
-      }
-    `}
+    query={allOpenTicketsQuery}
     // Fetch policy so reloads when changing routes (does not use cached data)
     fetchPolicy='network-only'
   >
