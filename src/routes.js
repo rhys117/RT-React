@@ -6,12 +6,15 @@ import AboutPage from './components/about/AboutPage';
 import OpenTicketsPage from './components/request_tracker/ticket/OpenTicketsPage';
 import UserDefaultView from './components/request_tracker/user/DefaultView';
 
-export default (
-  <div>
-    <Route path="/" exact component={HomePage} />
-    <Route path="/login" exact component={LoginPage} />
-    <Route path="/about" component={AboutPage} />
-    <Route path="/open_tickets" component={OpenTicketsPage} />
-    <Route path="/user" component={UserDefaultView} />
-  </div>
-);
+const Routes = ({isLoggedIn}) => {
+  return (
+    <div>
+      <Route path="/" exact component={isLoggedIn ? UserDefaultView : HomePage}/>
+      <Route path="/login" exact component={LoginPage}/>
+      <Route path="/about" component={AboutPage}/>
+      <Route path="/open_tickets" component={OpenTicketsPage}/>
+    </div>
+  )
+};
+
+export default Routes

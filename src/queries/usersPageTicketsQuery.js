@@ -10,7 +10,12 @@ const usersPageTicketsQuery = gql`
         }
       }) {
         effectiveId
+        status
         subject
+        owner {
+          name
+        }
+        due
       }
       
       reminders(filter:{
@@ -19,10 +24,16 @@ const usersPageTicketsQuery = gql`
           status: "open"
         }
       }) {
+        effectiveId
         status
         subject
-        refersTo {
+        priority
+        ticket {
           effectiveId
+          status
+          owner {
+            name
+          }
         }
       }
     }

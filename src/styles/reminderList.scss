@@ -1,0 +1,21 @@
+.reminder-list {
+  width: 100%;
+  .reminder-id {
+    width: 8%;
+  }
+  .reminder-status {
+    width: 8%;
+  }
+  .reminder-subject {
+    width: 42%;
+  }
+  .reminder-owner {
+    width: 12%;
+  }
+  .reminder-due {
+    width: 22%;
+  }
+  .priority {
+    width: 8%;
+  }
+}

@@ -2,7 +2,7 @@
 
 This project is a work in progress user portal for the ticketing system 'request tracker'.
 
-This project depends on of my other projects exposing the request tracker database via a GraphQL api. It can be found at: https://github.com/rhys117/rt-graphql
+This project depends on one of my other projects exposing the request tracker database via a GraphQL api. It can be found at: https://github.com/rhys117/rt-graphql
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -13,7 +13,7 @@ class Layout extends React.Component {
           isLoggedIn={this.props.isLoggedIn}
           username={this.props.username}
         />
-        { Routes }
+        <Routes isLoggedIn={this.props.isLoggedIn} />
       </div>
     );
   }

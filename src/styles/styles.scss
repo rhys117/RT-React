@@ -1,5 +1,6 @@
 @import "./loginPage";
 @import "./ticketList";
+@import "./reminderList";
 
 /* Styles */
 #root {
@@ -17,5 +18,11 @@ header {
     cursor: pointer;
     border: none;
     background: inherit;
+  }
+}
+
+main {
+  section {
+    margin-bottom: 30px;
   }
 }
