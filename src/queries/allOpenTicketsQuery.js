@@ -6,7 +6,7 @@ const allOpenTicketsQuery = gql`
       effectiveId
       status
       subject
-      due
+      lastUpdated
       owner {
         name
       }

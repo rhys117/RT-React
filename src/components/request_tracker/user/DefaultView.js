@@ -34,7 +34,11 @@ export class UserDefaultView extends Component {
               <section className='card' id='users-current-tickets'>
                 <div className='card-body'>
                   <h5 className="card-title">Open Tickets</h5>
-                  <TicketList tickets={data.user.tickets}/>
+                  { data.user.tickets.length > 0 ?
+                    <TicketList tickets={data.user.tickets}/>
+                    :
+                    <h5>Job Done!</h5>
+                  }
                 </div>
               </section>
 
@@ -43,6 +47,13 @@ export class UserDefaultView extends Component {
                   <h5 className="card-title">Current Reminders</h5>
                   <ReminderList reminders={data.user.reminders}/>
                 </div>
+
+                { data.user.ticketsMissingReminder.length > 0 &&
+                  <div className='card-body'>
+                    <h5 className="card-title">Tickets Without Reminders</h5>
+                    <TicketList tickets={data.user.ticketsMissingReminder}/>
+                  </div>
+                }
               </section>
             </main>
           )

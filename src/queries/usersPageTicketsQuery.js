@@ -12,10 +12,10 @@ const usersPageTicketsQuery = gql`
         effectiveId
         status
         subject
+        lastUpdated
         owner {
           name
         }
-        due
       }
       
       reminders(filter:{
@@ -35,6 +35,16 @@ const usersPageTicketsQuery = gql`
             name
           }
         }
+      }
+      
+      ticketsMissingReminder {
+        effectiveId
+        status
+        subject
+        lastUpdated
+        owner {
+          name
+        } 
       }
     }
   }

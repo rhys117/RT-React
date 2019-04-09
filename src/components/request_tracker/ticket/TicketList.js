@@ -11,7 +11,7 @@ const TicketList = ({tickets}) => {
         <th className='ticket-status'>Status</th>
         <th className='ticket-subject'>Subject</th>
         <th className='ticket-owner'>Owner</th>
-        <th className='ticket-due'>Due</th>
+        <th className='ticket-last-updated'>Last Updated</th>
       </tr>
       </thead>
       <tbody>
