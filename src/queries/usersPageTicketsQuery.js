@@ -28,6 +28,7 @@ const usersPageTicketsQuery = gql`
         status
         subject
         priority
+        due
         ticket {
           effectiveId
           status
@@ -35,16 +36,6 @@ const usersPageTicketsQuery = gql`
             name
           }
         }
-      }
-      
-      ticketsMissingReminder {
-        effectiveId
-        status
-        subject
-        lastUpdated
-        owner {
-          name
-        } 
       }
     }
   }

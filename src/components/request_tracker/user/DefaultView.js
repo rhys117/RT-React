@@ -6,6 +6,7 @@ import usersPageTicketsQuery from '../../../queries/usersPageTicketsQuery';
 import LoadingDots from '../../common/LoadingDots';
 import TicketList from '../ticket/TicketList';
 import ReminderList from "../reminder/ReminderList";
+import LoadMissingRemindersList from '../reminder/LoadMissingRemindersList';
 
 
 
@@ -27,7 +28,7 @@ export class UserDefaultView extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) return <p>Loading<LoadingDots interval={100} dots={20}/></p>;
-          if (error) return <p>Whoops! Something went wrong.</p>
+          if (error) return <p>Whoops! Something went wrong.</p>;
 
           return (
             <main>
@@ -47,13 +48,7 @@ export class UserDefaultView extends Component {
                   <h5 className="card-title">Current Reminders</h5>
                   <ReminderList reminders={data.user.reminders}/>
                 </div>
-
-                { data.user.ticketsMissingReminder.length > 0 &&
-                  <div className='card-body'>
-                    <h5 className="card-title">Tickets Without Reminders</h5>
-                    <TicketList tickets={data.user.ticketsMissingReminder}/>
-                  </div>
-                }
+                <LoadMissingRemindersList userId={this.state.userId} />
               </section>
             </main>
           )

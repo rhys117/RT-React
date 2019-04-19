@@ -5,7 +5,6 @@ import dateFormat from 'dateformat';
 
 const ReminderListRow = ({reminder}) => {
   let formatted_date = dateFormat(reminder.due, "dS mmmm, yyyy, h:MM TT");
-
   return (
     <tr>
       <td><a href={DISPLAY_TICKET_URL + reminder.ticket.effectiveId} target="_blank" rel="noopener noreferrer">{reminder.ticket.effectiveId}</a></td>
