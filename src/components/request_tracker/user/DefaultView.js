@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import {Query} from 'react-apollo';
 import {connect} from 'react-redux';
-import toastr from 'toastr';
 import usersPageTicketsQuery from '../../../queries/usersPageTicketsQuery';
 import LoadingDots from '../../common/LoadingDots';
 import TicketList from '../ticket/TicketList';
 import ReminderList from "../reminder/ReminderList";
 import LoadMissingRemindersList from '../reminder/LoadMissingRemindersList';
-
-
 
 export class UserDefaultView extends Component {
   constructor(props) {

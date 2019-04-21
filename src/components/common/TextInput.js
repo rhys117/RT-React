@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {PropTypes} from 'prop-types';
 
 const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';
@@ -10,7 +9,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   return (
     <div className={wrapperClass}>
       <label htmlFor={name}>{label}</label>
-      <div className='field'>
+      <div className="field">
         <input
           type="text"
           name={name}
@@ -18,7 +17,7 @@ const TextInput = ({name, label, onChange, placeholder, value, error}) => {
           placeholder={placeholder}
           value={value}
           onChange={onChange}/>
-        { error && <div className="alert alert-danger">{error}</div> }
+        {error && <div className="alert alert-danger">{error}</div>}
       </div>
     </div>
   );

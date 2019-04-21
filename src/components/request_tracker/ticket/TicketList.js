@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import TicketListRow from './TicketListRow';
+import ManageTicketListRow from './ManageTicketListRow';
 
 const TicketList = ({tickets}) => {
   return (
@@ -12,11 +12,12 @@ const TicketList = ({tickets}) => {
         <th className='ticket-subject'>Subject</th>
         <th className='ticket-owner'>Owner</th>
         <th className='ticket-last-updated'>Last Updated</th>
+        <th className='ticket-edit'>Edit</th>
       </tr>
       </thead>
       <tbody>
       {tickets.map(ticket =>
-        <TicketListRow key={ticket.effectiveId} ticket={ticket} />
+        <ManageTicketListRow key={ticket.effectiveId} ticket={ticket} />
       )}
       </tbody>
     </table>

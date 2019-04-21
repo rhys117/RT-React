@@ -15,13 +15,13 @@ const LoadMissingRemindersList = ({userId}) => {
         if (loading) {
           return (
             <div className="card-body">
-              <h5 class="card-title">Searching for tickets missing reminders<LoadingDots interval={100} dots={20}/></h5>
+              <h5 className="card-title">Searching for tickets missing reminders<LoadingDots interval={100} dots={20}/></h5>
             </div>
           );
         }
 
         if (error) return <p>Whoops! Something went wrong.</p>;
-        debugger;
+
         return (
           <div>
             {

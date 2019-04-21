@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import ReminderListRow from './ReminderListRow';
-import usersTicketsMissingRemindersQuery from '../../../queries/usersTicketsMissingRemindersQuery';
 
 const ReminderList = ({reminders}) => {
   return (

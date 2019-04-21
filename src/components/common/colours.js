@@ -1,0 +1,1 @@
+export const lightBlue = '#ADD8E6';
